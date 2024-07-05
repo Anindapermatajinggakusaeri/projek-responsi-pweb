@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Otakuverse</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      header {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 1rem 0;
+      }
+      main {
+        padding: 2rem;
+      }
+      #anime-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+      .anime-item {
+        background-color: white;
+        margin: 1rem;
+        padding: 1rem;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 30%;
+      }
+      .anime-item h3 {
+        margin-top: 0;
+      }
+      .anime-item img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+      }
+      .anime-item p {
+        margin: 0.5rem 0;
+      }
+      .anime-item button {
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      .anime-item button:hover {
+        background-color: #555;
+      }
+      #favorites-list {
+        margin-top: 2rem;
+      }
+      #favorites-list h2 {
+        margin-top: 0;
+      }
+      #favorites {
+        list-style: none;
+        padding: 0;
+      }
+      #favorites li {
+        background-color: white;
+        margin: 0.5rem 0;
+        padding: 0.5rem;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 1rem 0;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Otakuverse</h1>
+    </header>
+    <main>
+      <section id="anime-list">
+        <h2>Anime Di Musim Ini</h2>
+        <div class="anime-item">
+          <h3>One Piece</h3>
+          <img src="image/anime1.jpg" alt="One Piece" />
+          <p>Status: Ongoing</p>
+          <p>Studio: Toei Animation</p>
+          <p>Released: 1999</p>
+          <p>Duration: 24 min.</p>
+          <p>Season: Fall 1999</p>
+          <p>Type: TV</p>
+          <p>Censor: Censored</p>
+          <p>Director: Nagamine Tatsuya, Uda Kounosuke</p>
+          <p>Posted by: admin</p>
+          <p>Released on: February 16, 2024</p>
+          <p>Updated on: July 3, 2024</p>
+          <p>Genre: Action, Adventure, Fantasy, Shounen</p>
+          <p>
+            Synopsis: Barely surviving in a barrel after passing through a
+            terrible whirlpool at sea, carefree Monkey D. Luffy ends up aboard a
+            ship under attack by fearsome pirates...
+          </p>
+          <button onclick="addToFavorites('One Piece')">
+            Add to Favorites
+          </button>
+        </div>
+
+        <div class="anime-item">
+          <h3>Astro Note</h3>
+          <img src="image/anime2.jpg" alt="Astro Note" />
+          <p>Status: Completed</p>
+          <p>Studio: Telecom Animation Film</p>
+          <p>Released: 2024</p>
+          <p>Duration: 24 min. per ep.</p>
+          <p>Season: Spring 2024</p>
+          <p>Type: TV</p>
+          <p>Episodes: 12</p>
+          <p>Censor: Censored</p>
+          <p>Director: Kasugamori Haruki, Takamatsu Shinji</p>
+          <p>
+            Producers: Bandai Namco Music Live, BS Asahi, Crunchyroll, Lantis,
+            Movic, Shochiku, Tokyo MX, Tokyu Agency
+          </p>
+          <p>Posted by: admin</p>
+          <p>Released on: April 3, 2024</p>
+          <p>Updated on: June 21, 2024</p>
+          <p>Genre: Comedy, Romance, Sci-Fi</p>
+          <p>
+            Synopsis: Takumi, a gifted chef, was just let go from his job. He
+            lands a gig at an old boarding house called Astro-sou but hesitates
+            to accept after learning he must also live there full-time...
+          </p>
+          <button onclick="addToFavorites('Astro Note')">
+            Add to Favorites
+          </button>
+        </div>
+
+        <div class="anime-item">
+          <h3>Kizumonogatari: Koyomi Vamp</h3>
+          <img src="image/anime3.jpg" alt="Kizumonogatari: Koyomi Vamp" />
+          <p>Status: Completed</p>
+          <p>Studio: Shaft</p>
+          <p>Released: 2024</p>
+          <p>Duration: 2hr. 24 min.</p>
+          <p>Type: Movie</p>
+          <p>Episodes: 1</p>
+          <p>Censor: Censored</p>
+          <p>Director: Oishi Tatsuya</p>
+          <p>Posted by: admin</p>
+          <p>Released on: February 16, 2024</p>
+          <p>Updated on: February 16, 2024</p>
+          <p>Genre: Action, Mystery, Supernatural, Vampire</p>
+          <p>Synopsis: Compilation film of the three Kizumonogatari movies.</p>
+          <button onclick="addToFavorites('Kizumonogatari: Koyomi Vamp')">
+            Add to Favorites
+          </button>
+        </div>
+      </section>
+
+      <section id="favorites-list">
+        <h2>Your Favorites</h2>
+        <ul id="favorites">
+          <!-- Favorite anime will be added here -->
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>Hit Counter: <span id="hit-counter">0</span></p>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const favoritesList = document.getElementById("favorites");
+
+        function addToFavorites(animeTitle) {
+          const favoriteItem = document.createElement("li");
+          favoriteItem.textContent = animeTitle;
+          favoritesList.appendChild(favoriteItem);
+        }
+
+        const buttons = document.querySelectorAll(".anime-item button");
+        buttons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const animeTitle = button
+              .closest(".anime-item")
+              .querySelector("h3").textContent;
+            addToFavorites(animeTitle);
+          });
+        });
+
+        let hitCounter = parseInt(localStorage.getItem("hit-counter")) || 0;
+        document.getElementById("hit-counter").textContent = ++hitCounter;
+        localStorage.setItem("hit-counter", hitCounter);
+      });
+    </script>
+  </body>
+</html>
